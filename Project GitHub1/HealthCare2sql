@@ -1,0 +1,41 @@
+SELECT 
+     FT.dimPatientPK,
+     FT.dimDatePostPK,
+     P.PatientNumber,
+     CONCAT(P.FirstName,' ',P.LastName) AS Patient_Name,
+     P.PatientGender,
+     P.PatientAge,
+     P.City,
+     P.[State],
+     PA.dimPayerPK,
+     PA.PayerName as Payer_Category,
+     CPT.CptDesc as Description,
+     CPT.CptGroupinG as Services,
+     LO.dimLocationPK as LocationId,
+     LO.LocationName,
+     tra.TransactionType,
+     TRA.[Transaction],
+     code.DiagnosisCode,
+     code.DiagnosisCodeDescription
+
+FROM Dimpatient AS P
+   LEFT JOIN FactTable AS FT 
+ON P.dimPatientPK = FT.dimPatientPK
+   LEFT JOIN dimCptCode as CPT
+ON CPT.dimCPTCodePK = FT.dimCPTCodePK
+   LEFT JOIN DimPlayer AS Pa
+ON PA.dimPayerPK = FT.dimPayerPK
+   LEFT JOIN Dimtrancstion AS TRA
+ON TRA.dimTransactionPK = FT.dimTransactionPK
+   LEFT JOIN DimLocation AS LO
+ON LO.dimLocationPK = FT.dimLocationPK
+   LEFT JOIN dimDiagnosisCode as Code
+ON Code.dimDiagnosisCodePK = ft.dimDiagnosisCodePK
+
+WHERE 
+P.PatientAge 
+BETWEEN 40 and 70
+
+    
+ORDER BY 
+   P.FirstName
