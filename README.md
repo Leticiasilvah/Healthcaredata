@@ -1,6 +1,4 @@
-
-
-
+![google_health_nhs_hero width-1200 format-webp 2](https://github.com/Leticiasilvah/Healthcaredata/assets/124775963/6b33134e-be7a-4db9-9c07-7c2e1383062d)
 
 
 In this code, we can see the survey performance of hospitals and clinics between 2019 and 2020. Our total number of patients is over 28,000. This survey was conducted in various states throughout the United States. We have 42% male patients, while 58% are female patients. 
